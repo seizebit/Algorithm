@@ -7,19 +7,23 @@
 // @lc code=start
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integere> Intersection = new HashSet();
-        Set<Integere> ans = new HashSet();
-        for (int i = 0; i < nums1.length(); i++){
-            Intersection.add(nums1[1]);
+        HashSet<Integer> set = new HashSet<Integer>();
+        for(int i: nums1){
+            set.add(i);
         }
-        for (int i = 0; i < nums2.length(); i++){
-            if (Intersection.contains(nums2[i])){
-                ans.add(num2[i]);
+        
+        HashSet<Integer> intersection = new HashSet<Integer>();
+        for (int i: nums2){
+            if(set.contains(i)){
+                intersection.add(i);
             }
-            return ans;
-
         }
-
+        int[] result = new int[intersection.size()];
+        int index = 0;
+        for(int i: intersection){
+            result[index++] = i;
+        }
+         return result;
     }
 }
 // @lc code=end
